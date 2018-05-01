@@ -2,7 +2,7 @@ sort_okta_users.py runs in python 2.7.10
 
 ----------------------------------------
 
-sort_okta_users.py separates parses the OktaPasswordHealth.csv and separates users based on the following statuses:
+sort_okta_users.py parses the OktaPasswordHealth.csv and separates users based on the following statuses:
 
 - active
 - deprovisioned 
