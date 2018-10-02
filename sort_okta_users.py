@@ -6,7 +6,16 @@ def dashed_line():
 	print '-' * 40
 
 # define list of statuses and numbers_of_users list to be populated later
-okta_statuses = ['ACTIVE', 'DEPROVISIONED', 'LOCKED_OUT', 'PASSWORD_EXPIRED', 'PROVISIONED', 'STAGED', 'SUSPENDED']
+okta_statuses = [
+	'ACTIVE',
+	'DEPROVISIONED',
+	'LOCKED_OUT',
+	'PASSWORD_EXPIRED',
+	'PROVISIONED',
+	'STAGED', 
+	'SUSPENDED'
+]
+
 numbers_of_users = []
 
 # define function to turn a csv into a list and store the list
