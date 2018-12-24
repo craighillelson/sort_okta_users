@@ -1,28 +1,32 @@
+"""__doc__"""
+
 # import
 import csv
 
 # define function
 def dashed_line():
+    """ print dashed line for readbility """
     print '-' * 40
 
-# define list of statuses and numbers_of_users list to be populated later
-okta_statuses = [
+# define list of statuses and NUMBERS_OF_USERS list to be populated later
+OKTA_STATUSES = [
     'ACTIVE',
     'DEPROVISIONED',
     'LOCKED_OUT',
     'PASSWORD_EXPIRED',
     'PROVISIONED',
-    'STAGED', 
+    'STAGED',
     'SUSPENDED'
 ]
 
-numbers_of_users = []
+NUMBERS_OF_USERS = []
 
 # define function to turn a csv into a list and store the list
 def csv_to_list(okta_status):
+    """ import csv and turn it into a list """
     user_list = []
     okta_status_csv = okta_status.lower() + '.csv'
-    with open('OktaPasswordHealth.csv') as csvfile:  
+    with open('OktaPasswordHealth.csv') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
             user = row['Login']
@@ -40,21 +44,21 @@ def csv_to_list(okta_status):
         return user_list
 
 # create a list to be populated later
-numbers_of_users = []
+NUMBERS_OF_USERS = []
 
 # get total users
-for status in okta_statuses:
+for status in OKTA_STATUSES:
     get_list = csv_to_list(status)
     number = len(get_list)
-    numbers_of_users.append(number)
-    total_users = float(sum(numbers_of_users))
+    NUMBERS_OF_USERS.append(number)
+    total_users = float(sum(NUMBERS_OF_USERS))
 
 # summary header
 print "Summary"
 dashed_line()
 
 # calculate percentage of total users in each status group
-for status in okta_statuses:
+for status in OKTA_STATUSES:
     get_list = csv_to_list(status)
     number = len(get_list)
     percent = number / total_users
