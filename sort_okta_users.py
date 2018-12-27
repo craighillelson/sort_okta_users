@@ -3,10 +3,8 @@
 # import
 import csv
 
-# define function
-def dashed_line():
-    """ print dashed line for readbility """
-    print '-' * 40
+# define dashed line lambda for readability
+DASHED_LINE = lambda: '-'
 
 # define list of statuses and NUMBERS_OF_USERS list to be populated later
 OKTA_STATUSES = [
@@ -53,7 +51,7 @@ for status in OKTA_STATUSES:
 
 # summary header
 print "Summary"
-dashed_line()
+print DASHED_LINE()
 
 # calculate percentage of total users in each status group
 for status in OKTA_STATUSES:
