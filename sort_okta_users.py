@@ -4,7 +4,7 @@
 import csv
 
 # define dashed line lambda for readability
-DASHED_LINE = lambda: '-'
+DASHED_LINE = lambda: '-' * 40
 
 # define list of statuses and NUMBERS_OF_USERS list to be populated later
 OKTA_STATUSES = [
