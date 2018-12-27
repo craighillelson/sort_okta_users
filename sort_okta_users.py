@@ -28,9 +28,9 @@ def csv_to_list(okta_status):
         reader = csv.DictReader(csvfile)
         for row in reader:
             user = row['Login']
-            status = row['Status']
-            if status == okta_status:
-                user_list.append([user, status])
+            user_status = row['Status']
+            if user_status == okta_status:
+                user_list.append([user, user_status])
                 out_file = open(okta_status_csv, 'w')
             else:
                 pass
