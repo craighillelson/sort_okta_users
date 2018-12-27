@@ -19,8 +19,6 @@ OKTA_STATUSES = [
     'SUSPENDED'
 ]
 
-NUMBERS_OF_USERS = []
-
 # define function to turn a csv into a list and store the list
 def csv_to_list(okta_status):
     """ import csv and turn it into a list """
