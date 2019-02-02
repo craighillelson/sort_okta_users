@@ -39,7 +39,6 @@ def csv_to_list(okta_status):
         writer.writerows(user_list)
         return user_list
 
-
 # create a list to be populated later
 NUMBERS_OF_USERS = []
 
