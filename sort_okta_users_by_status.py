@@ -60,7 +60,7 @@ def write_to_csv(name_of_file, status_dct):
 
 with open("OktaPasswordHealth.csv") as in_file:
     F_CSV = csv.reader(in_file)
-    HEADINGS = [ re.sub('[^a-zA-Z]', '_',h) for h in next(F_CSV) ]
+    HEADINGS = [re.sub('[^a-zA-Z]', '_', h) for h in next(F_CSV)]
     ROW = namedtuple('Row', HEADINGS)
     for r in F_CSV:
         row = ROW(*r)
