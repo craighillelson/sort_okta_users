@@ -1,6 +1,6 @@
 # Overview
 
-Python 3 script to separate Okta users based on the following statuses:
+Python 3.7.2 script to separate Okta users based on the following statuses:
 
 - active
 - deprovisioned 
