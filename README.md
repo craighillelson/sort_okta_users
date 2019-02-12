@@ -1,6 +1,6 @@
 # Overview
 
-sort_okta_users.py parses the OktaPasswordHealth.csv and separates users based on the following statuses:
+Python 3 script to separate Okta users based on the following statuses:
 
 - active
 - deprovisioned 
@@ -10,8 +10,8 @@ sort_okta_users.py parses the OktaPasswordHealth.csv and separates users based o
 - staged
 - suspended
 
-sort_okta_users.py then exports csvs of users grouped by status (e.g. active.csv, deprovisioned.csv, etc.) and provides a summary of each status including what percentage of total users each status grouping represents
+sort_okta_users_by_status.py then exports csvs of users grouped by status (e.g. active_users.csv, deprovisioned_users.csv, etc.) and provides a summary of each status including what percentage of total users each status grouping represents.
 
-to run, sort_okta_users.py, save sort_okta_users.py and the "OktaPasswordHealth.csv" to the same directory.
+To run, save "sort_okta_users_by_status.py" and the "OktaPasswordHealth.csv" to the same directory.
 
-In Terminal, navigate to the directory in which you've saved both files and type "python sort_okta_users.py"
+In Terminal, navigate to the directory in which you've saved both files and type "python3 sort_okta_users_by_status.py"
