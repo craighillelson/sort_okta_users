@@ -15,7 +15,7 @@ OKTA_STATUSES = [
     'PROVISIONED',
     'STAGED',
     'SUSPENDED'
-]
+    ]
 
 # define function to turn a csv into a list and store the list
 def csv_to_list(okta_status):
