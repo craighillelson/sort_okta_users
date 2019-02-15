@@ -42,8 +42,7 @@ def print_dct(user_status, dct):
     if dct:
         percentage = "{0:.2%}".format(len(dct) / len(ALL_USERS_DCT))
         print(f"Satus: {user_status}\nUsers: {len(dct)}. {percentage}\n")
-        for k, v_status in dct.items():
-            print(k, v_status)
+        [print(k, v_status) for k, v_status in dct.items()]
         print(RTN())
 
 
