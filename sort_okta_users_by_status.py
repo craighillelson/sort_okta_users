@@ -42,22 +42,23 @@ def print_dct(user_status, dct):
     if dct:
         percentage = "{0:.2%}".format(len(dct) / len(ALL_USERS_DCT))
         print(f"Satus: {user_status}\nUsers: {len(dct)}. {percentage}\n")
-        for k, v_status in dct.items():
-            print(k, v_status)
+        for user, status in dct.items():
+            print(user, status)
         print(RTN())
 
 
 def write_to_csv(name_of_file, status_dct):
-    """ write dictionaries to csvs """
+    """ write dictionary to csv """
     if status_dct:
         with open(name_of_file, 'w') as out_file:
             out_csv = csv.writer(out_file)
             out_csv.writerow(HEADERS)
-            for k, v_status in status_dct.items():
-                user_stats = (k, v_status)
+            for user, status in status_dct.items():
+                user_stats = (user, status)
                 out_csv.writerow(user_stats)
 
 
+# open csv, populate dictionaries based on user status
 with open("OktaPasswordHealth.csv") as in_file:
     F_CSV = csv.reader(in_file)
     HEADINGS = [re.sub('[^a-zA-Z]', '_', h) for h in next(F_CSV)]
@@ -81,15 +82,16 @@ with open("OktaPasswordHealth.csv") as in_file:
         else:
             add_to_dct(SUSPENDED_DCT)
 
+
 # display results
 print(RTN())
 print(f"Total users: {len(ALL_USERS_DCT)}\n")
-print_dct("Active", ACTIVE_DCT)
-print_dct("Deprovisioned", DEPROVISIONED_DCT)
-print_dct("Locked Out", LOCKED_OUT_DCT)
-print_dct("Password Expired", PASSWORD_EXPIRED_DCT)
-print_dct("Staged", STAGED_DCT)
-print_dct("Suspended", SUSPENDED_DCT)
+print_dct("ACTIVE", ACTIVE_DCT)
+print_dct("DEPROVISIONED", DEPROVISIONED_DCT)
+print_dct("LOCKED OUT", LOCKED_OUT_DCT)
+print_dct("PASSWORD EXPIRED", PASSWORD_EXPIRED_DCT)
+print_dct("STAGED", STAGED_DCT)
+print_dct("SUSPENDED", SUSPENDED_DCT)
 
 # write to csvs
 write_to_csv("active_users.csv", ACTIVE_DCT)
