@@ -1,4 +1,7 @@
-""" __doc__ """
+"""
+Import the OktaPasswordHealth csv. 
+Populate csvs with users in each status.
+"""
 
 import csv
 import re
@@ -31,14 +34,14 @@ HEADERS = [
     'status',
     ]
 
-# define functions
+
 def add_to_dct(dct):
-    """ add to dictionary """
+    """Add to dictionary."""
     dct[row.Login] = row.Status
 
 
 def print_dct(user_status, dct):
-    """ calculate % of users per status, print users """
+    """Calculate percentage of users per status and print users."""
     if dct:
         percentage = "{0:.2%}".format(len(dct) / len(ALL_USERS_DCT))
         print(f"Satus: {user_status}\nUsers: {len(dct)}. {percentage}\n")
@@ -48,7 +51,7 @@ def print_dct(user_status, dct):
 
 
 def write_to_csv(name_of_file, status_dct):
-    """ write dictionary to csv """
+    """Write dictionary to csv."""
     if status_dct:
         with open(name_of_file, 'w') as out_file:
             out_csv = csv.writer(out_file)
@@ -58,7 +61,6 @@ def write_to_csv(name_of_file, status_dct):
                 out_csv.writerow(user_stats)
 
 
-# open csv, populate dictionaries based on user status
 with open("OktaPasswordHealth.csv") as in_file:
     F_CSV = csv.reader(in_file)
     HEADINGS = [re.sub('[^a-zA-Z]', '_', h) for h in next(F_CSV)]
@@ -83,7 +85,6 @@ with open("OktaPasswordHealth.csv") as in_file:
             add_to_dct(SUSPENDED_DCT)
 
 
-# display results
 print(RTN())
 print(f"Total users: {len(ALL_USERS_DCT)}\n")
 print_dct("ACTIVE", ACTIVE_DCT)
@@ -92,8 +93,6 @@ print_dct("LOCKED OUT", LOCKED_OUT_DCT)
 print_dct("PASSWORD EXPIRED", PASSWORD_EXPIRED_DCT)
 print_dct("STAGED", STAGED_DCT)
 print_dct("SUSPENDED", SUSPENDED_DCT)
-
-# write to csvs
 write_to_csv("active_users.csv", ACTIVE_DCT)
 write_to_csv("deprovisioned_users.csv", DEPROVISIONED_DCT)
 write_to_csv("locked_out_users.csv", LOCKED_OUT_DCT)
